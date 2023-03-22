@@ -9,6 +9,9 @@ lando start
 
 #After that the app is runing. To check info: 
 lando info
+
+#You'll see the URL to visit
+http://orium-challenge.lndo.site/
 ```
 
 ## Database Import:
