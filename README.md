@@ -42,7 +42,11 @@ lando drush uli
 ```
 
 ## Pages to visit
-Page ---
+```bash
+#To see the JSON page visit:
+http://orium-challenge.lndo.site/movies-json
+```
+
 ## Tech Stack:
 
 **Drupal 9**
