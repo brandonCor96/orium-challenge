@@ -16,7 +16,7 @@ entity.movies.delete_form:
   base_route: entity.movies.canonical
   weight: 10
 entity.movies.collection:
-  title: 'moviess'
+  title: 'Movies'
   route_name: entity.movies.collection
   base_route: system.admin_content
   weight: 10

@@ -1,5 +1,5 @@
 entity.movies.settings:
-  title: 'movies'
+  title: 'Movies'
   description: 'Configure a movies entity type.'
   route_name:  entity.movies.settings
   parent: system.admin_structure
