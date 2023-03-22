@@ -9,6 +9,9 @@ use Drupal\user\EntityOwnerInterface;
 /**
  * Provides an interface defining a movies entity type.
  */
-interface MoviesInterface extends ContentEntityInterface, EntityOwnerInterface, EntityChangedInterface {
-
+interface MoviesInterface extends
+    ContentEntityInterface,
+    EntityOwnerInterface,
+    EntityChangedInterface
+{
 }
