@@ -1,0 +1,5 @@
+name: Movies
+type: module
+description: 'Creates a custom entity type for movies.'
+core_version_requirement: ^9 || ^10
+package: Custom

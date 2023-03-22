@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Provides a movies entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\movies_module\Entity\Movies;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function movies_module_theme() {
+  return [
+    'movies' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for movies templates.
+ *
+ * Default template: movies.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the movies information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_movies(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function movies_module_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish moviess.
+      $storage = \Drupal::entityTypeManager()->getStorage('movies');
+      $movies_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($movies_ids) as $movies) {
+        $movies->set('status', FALSE);
+        $movies->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize moviess.
+      $storage = \Drupal::entityTypeManager()->getStorage('movies');
+      $movies_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($movies_ids) as $movies) {
+        $movies->setOwnerId(0);
+        $movies->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function movies_module_user_predelete(UserInterface $account) {
+  // Delete moviess.
+  $storage = \Drupal::entityTypeManager()->getStorage('movies');
+  $movies_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $moviess = $storage->loadMultiple($movies_ids);
+  $storage->delete($moviess);
+}
