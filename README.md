@@ -12,6 +12,9 @@ lando info
 
 #You'll see the URL to visit
 http://orium-challenge.lndo.site/
+
+#To Stop Lando
+lando stop
 ```
 
 ## Database Import:
