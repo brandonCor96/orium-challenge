@@ -1,0 +1,7 @@
+entity.movies.settings:
+  path: 'admin/structure/movies'
+  defaults:
+    _form: '\Drupal\movies_module\Form\MoviesSettingsForm'
+    _title: 'movies'
+  requirements:
+    _permission: 'administer movies'

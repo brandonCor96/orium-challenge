@@ -1,0 +1,6 @@
+movies_lib:
+  css:
+    theme:
+      css/movies_form.css: {}
+  js:
+    js/validate.js: {}  

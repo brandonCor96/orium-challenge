@@ -1,0 +1,78 @@
+uuid: ca1971c6-2e4e-42a8-bd4c-dc2b82fb4141
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_group
+    - movies_module
+third_party_settings:
+  field_group:
+    group_wrapper:
+      children:
+        - title
+        - release_date
+        - genre
+      label: Wrapper
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: movies_flex
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+id: movies.movies.default
+targetEntityType: movies
+bundle: movies
+mode: default
+content:
+  genre:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  release_date:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: false
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

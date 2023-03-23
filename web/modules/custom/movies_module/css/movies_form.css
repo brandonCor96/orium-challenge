@@ -1,0 +1,8 @@
+.movies_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.js-form-item-release-date-0-value-date input.is-invalid {
+    background-color: red;
+}

@@ -1,0 +1,3 @@
+administer movies:
+  title: 'Administer movies settings'
+  restrict access: true
