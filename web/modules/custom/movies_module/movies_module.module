@@ -9,6 +9,10 @@ use Drupal\Core\Render\Element;
 use Drupal\movies_module\Entity\Movies;
 use Drupal\user\UserInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\movies_module\Normalizer\MoviesNormalizer;
 
 /**
  * Implements hook_theme().
@@ -131,3 +135,12 @@ function movies_module_validate_date_in_future(&$form, &$form_state)
         );
     }
 }
+
+/**
+ * Implements hook_entity_type_build().
+ */
+// function movies_module_entity_type_build(EntityTypeInterface $entity_type) {
+//     if ($entity_type->id() === 'movies') {
+//         $entity_type->set('normalizer_class', MoviesNormalizer::class);
+//     }
+// }
