@@ -12,6 +12,9 @@
                     $(this).removeClass('is-valid');
                     $(this).addClass('is-invalid');
                     console.log('Date in future!!');
+                    // At this Point I could have added a property to disable
+                    // the submit to add to the flow of the Front, however 
+                    // for now this is assigned to the Back with the validation.
                 } else {
                     // Date is not in the future
                     $(this).removeClass('is-invalid');

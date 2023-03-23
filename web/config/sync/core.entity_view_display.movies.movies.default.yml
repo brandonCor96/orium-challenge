@@ -1,0 +1,40 @@
+uuid: 15b3ebc4-4940-432a-8d71-9382ea46a915
+langcode: en
+status: true
+dependencies:
+  module:
+    - movies_module
+id: movies.movies.default
+targetEntityType: movies
+bundle: movies
+mode: default
+content:
+  genre:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  release_date:
+    type: timestamp
+    label: inline
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  status: true
+  uid: true

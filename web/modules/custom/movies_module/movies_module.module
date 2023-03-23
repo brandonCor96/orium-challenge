@@ -101,9 +101,33 @@ function movies_module_form_alter(
 ) {
     if ($form_id == "movies_add_form" || $form_id == "movies_edit_form") {
         // Make the "release_date" field required.
-        $form['release_date']['widget'][0]['value']['#required'] = TRUE;
+        $form["release_date"]["widget"][0]["value"]["#required"] = true;
 
         // Adding Library
         $form["#attached"]["library"][] = "movies_module/movies_lib";
+
+        // Adding custom validation
+        $form["#validate"][] = "movies_module_validate_date_in_future";
+    }
+}
+
+/**
+ * Custom validation function to validate a date field is in the future.
+ */
+function movies_module_validate_date_in_future(&$form, &$form_state)
+{
+    // Get the date field value from the form state.
+    $date = $form_state->getValue("release_date");
+
+    // Convert the date to a timestamp.
+    $timestamp = strtotime($date[0]["value"]);
+
+    // Check if the timestamp is in the future.
+    if ($timestamp > time()) {
+        // Add an error message to the date field.
+        $form_state->setErrorByName(
+            "release_date",
+            t("The date cannot be in the future.")
+        );
     }
 }
