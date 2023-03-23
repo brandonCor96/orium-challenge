@@ -16,11 +16,11 @@ use Drupal\user\EntityOwnerTrait;
  * @ContentEntityType(
  *   id = "movies",
  *   label = @Translation("movies"),
- *   label_collection = @Translation("moviess"),
+ *   label_collection = @Translation("movies"),
  *   label_singular = @Translation("movies"),
- *   label_plural = @Translation("moviess"),
+ *   label_plural = @Translation("movies"),
  *   label_count = @PluralTranslation(
- *     singular = "@count moviess",
+ *     singular = "@count movies",
  *     plural = "@count moviess",
  *   ),
  *   handlers = {

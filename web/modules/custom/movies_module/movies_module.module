@@ -104,6 +104,6 @@ function movies_module_form_alter(
         $form['release_date']['widget'][0]['value']['#required'] = TRUE;
 
         // Adding Library
-        $form["#attached"]["library"][] = "movies_module/movies_css";
+        $form["#attached"]["library"][] = "movies_module/movies_lib";
     }
 }
