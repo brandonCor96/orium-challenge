@@ -10,8 +10,8 @@ third_party_settings:
     group_wrapper:
       children:
         - title
-        - genre
         - release_date
+        - genre
       label: Wrapper
       region: content
       parent_name: ''
@@ -36,7 +36,7 @@ mode: default
 content:
   genre:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -46,7 +46,7 @@ content:
     third_party_settings: {  }
   release_date:
     type: datetime_timestamp
-    weight: 3
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

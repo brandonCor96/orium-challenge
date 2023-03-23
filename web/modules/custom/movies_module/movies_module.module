@@ -100,6 +100,10 @@ function movies_module_form_alter(
     $form_id
 ) {
     if ($form_id == "movies_add_form" || $form_id == "movies_edit_form") {
+        // Make the "release_date" field required.
+        $form['release_date']['widget'][0]['value']['#required'] = TRUE;
+
+        // Adding Library
         $form["#attached"]["library"][] = "movies_module/movies_css";
     }
 }
